@@ -39,8 +39,31 @@
 
 <body>
     <div class="announcement">
-        <h1>Nope</h1>
+        <h1 id="status">Yes! 🇵🇱</h1>
+        <p>Kuba <span id="tense">is</span> in Poland</p>
+        <p class="dates">December 18, 2025 – January 1, 2026</p>
     </div>
+
+    <script>
+        const tripStart = new Date('2025-12-18');
+        const tripEnd = new Date('2026-01-02'); // Day after last day (Jan 1 inclusive)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const statusEl = document.getElementById('status');
+        const tenseEl = document.getElementById('tense');
+
+        if (today < tripStart) {
+            statusEl.textContent = 'Not yet';
+            tenseEl.textContent = 'will be';
+        } else if (today < tripEnd) {
+            statusEl.textContent = 'Yes! 🇵🇱';
+            tenseEl.textContent = 'is';
+        } else {
+            statusEl.textContent = 'Not at the moment';
+            tenseEl.textContent = 'was';
+        }
+    </script>
 </body>
 
 </html>
